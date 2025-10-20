@@ -1,0 +1,188 @@
+
+a) A primary key is a special column  in a table that uniquely identifies each row in that table. It cannot have duplicate values, and it cannot be empty (NULL).
+
+b) A foreign key is a column  in one table that refers to the primary key in another table. It acts as a link or a cross-reference between the two tables.
+
+Questions)
+
+1. What is normalization?
+Answer:
+Normalization is the systematic process of organizing data in a database to reduce redundancy and improve data integrity. It involves decomposing tables into smaller, well-structured tables and defining relationships between them.
+Key Goals:
+
+Eliminate data redundancy
+Ensure data dependencies make sense
+Reduce data modification anomalies
+
+Normal Forms:
+
+1NF (First Normal Form): Atomic values, no repeating groups
+2NF (Second Normal Form): 1NF + no partial dependencies
+3NF (Third Normal Form): 2NF + no transitive dependencies
+BCNF (Boyce-Codd Normal Form): Stricter version of 3NF
+
+2. Explain primary vs foreign key.
+Answer:
+Primary Key:
+
+Uniquely identifies each record in a table
+Cannot contain NULL values
+Only one primary key per table
+Automatically creates a clustered index
+Example: StudentID in STUDENTS table
+
+Foreign Key:
+
+A field that references the primary key of another table
+Establishes relationships between tables
+Can contain NULL values (unless specified NOT NULL)
+Multiple foreign keys allowed per table
+Enforces referential integrity
+Example: DepartmentID in STUDENTS table references DepartmentID in DEPARTMENTS table
+
+ What are constraints?
+Answer:
+Constraints are rules enforced on data columns to ensure data accuracy, integrity, and reliability. They prevent invalid data from being entered into the database.
+Types of Constraints:
+
+NOT NULL: Ensures column cannot have NULL value
+UNIQUE: Ensures all values in column are different
+PRIMARY KEY: Combination of NOT NULL and UNIQUE
+FOREIGN KEY: Maintains referential integrity between tables
+CHECK: Ensures values meet specific condition
+DEFAULT: Provides default value when none specified
+
+
+4. What is a surrogate key?
+Answer:
+A surrogate key is an artificially created unique identifier for a database table, having no business meaning. It's typically an auto-incrementing integer used as a primary key.
+Characteristics:
+
+System-generated (not derived from application data)
+Immutable (never changes)
+No business logic or meaning
+Usually an integer for performance
+Commonly implemented using AUTO_INCREMENT in MySQL
+
+
+5. How do you avoid data redundancy?
+Answer:
+Data redundancy is avoided through normalization and proper database design principles.
+Strategies:
+
+Normalization:
+
+Break down tables into smaller, related tables
+Eliminate repeating groups
+Remove partial and transitive dependencies
+
+
+Use Foreign Keys:
+
+Store reference to data instead of duplicating it
+Example: Store DepartmentID instead of department name in every student record
+
+
+Proper Table Design:
+
+Each table should represent one entity
+Avoid storing calculated values
+Use lookup tables for repeated values
+
+
+Referential Integrity:
+
+Enforce relationships through foreign keys
+Prevent orphaned records
+
+
+6. What is an ER diagram?
+Answer:
+An Entity-Relationship (ER) diagram is a visual representation of the database structure, showing entities, their attributes, and relationships between entities.
+Components:
+
+Entities (Rectangles):
+
+Objects or concepts (Students, Courses, Professors)
+Become tables in database
+
+
+Attributes (Ovals):
+
+Properties of entities
+Become columns in tables
+
+
+Relationships (Diamonds):
+
+Connections between entities
+Shown with lines
+
+
+Cardinality:
+
+One-to-One (1:1)
+One-to-Many (1:N)
+Many-to-Many (M:N)
+
+
+
+Symbols:
+
+Primary Key: Underlined attribute
+Weak Entity: Double rectangle
+Identifying Relationship: Double diamond
+Multi-valued Attribute: Double oval
+
+Purpose:
+
+Blueprint for database design
+Communication tool for stakeholders
+Documentation
+Identify relationships before implementation
+
+Our University System Relationships:
+
+STUDENTS ⟷ DEPARTMENTS (Many-to-One)
+STUDENTS ⟷ COURSES (Many-to-Many via ENROLLMENTS)
+PROFESSORS ⟷ COURSES (One-to-Many)
+DEPARTMENTS ⟷ PROFESSORS (One-to-Many)
+
+
+What are the types of relationships in DBMS?
+Answer:
+1. One-to-One (1:1)
+2. One-to-Many (1:N)
+3. Many-to-Many (M:N)
+
+Explain the purpose of AUTO_INCREMENT.
+Answer:
+AUTO_INCREMENT is a MySQL feature that automatically generates unique, sequential numeric values for a column, typically used for primary keys.
+Purpose:
+
+Automatic unique ID generation: No manual value entry needed
+Guarantees uniqueness: Each new record gets next available number
+Simplifies insertion: Don't need to track last used ID
+Performance: Integer keys provide fast indexing and joining
+
+9. What is the default storage engine in MySQL?
+Answer:
+InnoDB is the default storage engine in MySQL (since version 5.5).
+
+Other Storage Engines:
+
+MyISAM: Fast reads, no transactions
+MEMORY: In-memory tables, temporary data
+CSV: Stores data in CSV format
+ARCHIVE: Compressed storage for historical data
+
+
+10. What is a composite key?
+Answer:
+A composite key is a primary key composed of two or more columns that together uniquely identify a record in a table.
+Characteristics:
+
+Uses multiple columns combined
+Each column alone may not be unique
+Together they form a unique identifier
+Common in junction tables
