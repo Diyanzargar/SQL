@@ -78,5 +78,3 @@ This database can serve as a foundation for:
 4. Extend the schema with new features like course prerequisites, department budgets over time, or student GPA calculations.
 
 ---
-
-## 📎 File Structure
