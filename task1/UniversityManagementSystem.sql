@@ -163,7 +163,7 @@
 --         ON DELETE CASCADE 
 --         ON UPDATE CASCADE,
 --     CONSTRAINT uk_enrollment_assignment UNIQUE (EnrollmentID, AssignmentID)
--- );courses
+-- );
 
 
 -- ADD FOREIGN KEY FOR HEAD PROFESSOR
