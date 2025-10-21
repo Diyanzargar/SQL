@@ -1,8 +1,7 @@
 
 This document provides a high-level overview of the design, structure, and operational logic of the University Management System database.
 
-🎯 What Was Done 
-![licensed-image](https://github.com/user-attachments/assets/608a6aed-9e8b-498e-a79f-7271619c44a0)
+🎯 What Was Done
 
 
 The project resulted in a fully-realized relational database designed to manage the core academic operations of a university. The final product includes:
