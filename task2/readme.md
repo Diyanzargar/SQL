@@ -1,6 +1,6 @@
 # 🎓 University Management System - SQL Project
 
-This project simulates a **University Management System** using SQL. It includes a robust database schema design, various data manipulation practices, and the use of real-world constraints and relationships that reflect how a university operates.
+This project simulates a **University Management System** using SQL. It includes a robust database schema design, various data manipulation practices, and the use of real-world constraints and relationships that reflect how a university operates the database structure is from task 1.
 
 ---
 
