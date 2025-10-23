@@ -70,6 +70,7 @@ Student performance tracking
 
 ## 📐 Relationships
 erDiagram
+    
     DEPARTMENTS ||--o{ PROFESSORS : "has"
     
     DEPARTMENTS ||--o{ STUDENTS : "has"
