@@ -112,6 +112,25 @@ After completing this task, I learned:
 ✅ Create readable queries with aliases
 ✅ Write complex queries combining multiple concepts
 
+💡 What I Learned
+Technical Skills
+
+How to write efficient SELECT queries
+Different ways to filter data based on requirements
+Importance of sorting and limiting results
+Using wildcards for flexible searches
+Combining multiple conditions effectively
+
+✅ Task Completion
+Successfully demonstrated the ability to:
+
+✅ Extract specific data from database tables
+✅ Apply various filtering techniques
+✅ Sort and organize query results
+✅ Use pattern matching for searches
+✅ Write clean, readable SQL code
+✅ Understand practical business applications
+✅ Answer interview questions confidently
 
 
 💡 Best Practices Demonstrated
