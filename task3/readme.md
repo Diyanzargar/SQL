@@ -1,5 +1,5 @@
 🎓 SQL Developer Internship - Task 3: SELECT Queries
-
+Note (Refer to the first tasks of this repository for the schema)
 🎯 Project Overview
 This repository contains the complete submission for Task 3 of the SQL Developer Internship program. The task focuses on mastering basic SQL SELECT queries to extract and manipulate data from a university management database.
 Completion Date: October 23, 2025
