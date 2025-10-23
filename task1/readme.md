@@ -71,12 +71,22 @@ Student performance tracking
 ## 📐 Relationships
 erDiagram
     DEPARTMENTS ||--o{ PROFESSORS : "has"
+    
     DEPARTMENTS ||--o{ STUDENTS : "has"
+    
     DEPARTMENTS ||--o{ COURSES : "offers"
+    
     DEPARTMENTS ||--|{ PROFESSORS : "is headed by"
+    
     PROFESSORS ||--o{ COURSES : "teaches"
+    
     STUDENTS ||--o{ ENROLLMENTS : "has"
+    
     COURSES ||--o{ ENROLLMENTS : "has"
+    
     COURSES ||--o{ ASSIGNMENTS : "has"
+    
     ENROLLMENTS ||--o{ GRADES : "receives"
+    
     ASSIGNMENTS ||--o{ GRADES : "has"
+
