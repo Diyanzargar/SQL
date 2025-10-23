@@ -1,0 +1,49 @@
+Question 1: What does SELECT * do?
+Answer:
+SELECT * retrieves all columns from a specified table. The asterisk (*) is a wildcard character that represents "all columns."
+
+Question 2: How do you filter rows?
+Answer:
+Rows are filtered using the WHERE clause, which specifies conditions that rows must meet to be included in the result set.
+
+Question 3: What is LIKE '%value%'?
+Answer:
+LIKE '%value%' is a pattern matching operator used to search for a specified pattern in a column. The % is a wildcard that matches any sequence of characters.
+
+Question 4: What is BETWEEN used for?
+Answer:
+BETWEEN is used to filter results within a specified range. It's inclusive, meaning it includes both the start and end values of the range.
+
+Question 5: How do you limit output rows?
+Answer:
+The LIMIT clause restricts the number of rows returned by a query. It's useful for viewing sample data or getting top N results.
+
+Question 6: Difference between = and IN
+Answer:
+= (Equals Operator):
+
+Compares a column to a single value,
+Returns true if exact match,
+Used for one-to-one comparison
+
+IN Operator:
+
+Checks if a column value matches any value in a list,
+Returns true if value exists in the list,,
+Shorthand for multiple OR conditions
+
+Question 7: How to sort in descending order?
+Answer:
+To sort in descending order, use the ORDER BY clause with the DESC keyword.
+
+Question 8: What is aliasing?
+Answer:
+Aliasing is the practice of giving a table or column a temporary name using the AS keyword. Aliases make queries more readable.
+
+Question 9: Explain DISTINCT.
+Answer:
+DISTINCT is used to return only unique values, removing all duplicate rows from the result set.
+
+Question 10: What is the default sort order?
+Answer:
+The default sort order for ORDER BY is ASCENDING (ASC).
