@@ -1,0 +1,125 @@
+Question 1: What is GROUP BY?
+Answer:
+GROUP BY is a SQL clause that groups rows with the same values in specified columns into summary rows. It's used with aggregate functions to perform calculations on each group of data.
+
+How It Works:
+
+Takes rows with identical values in the specified column(s)
+Combines them into a single row per unique value
+Allows aggregate functions to calculate results for each group
+
+Question 2: Difference between WHERE and HAVING?
+Answer:
+WHERE and HAVING both filter data, but they work at different stages of query execution and filter different things.
+WHERE Clause:
+
+Filters individual rows BEFORE grouping
+Applied to raw data
+Cannot use aggregate functions
+Executes first in query processing
+
+HAVING Clause:
+
+Filters groups AFTER grouping
+Applied to aggregated results
+Can use aggregate functions
+Executes after GROUP BY
+
+Memory Tip:
+
+WHERE = filter What goes into the group (before)
+HAVING = filter groups that Have certain properties (after)
+
+
+Question 3: How does COUNT(*) differ from COUNT(column)?
+Answer:
+Both count rows, but they handle NULL values differently.
+COUNT(*):
+
+Counts all rows in the result set
+Includes rows with NULL values
+Counts the row itself, regardless of content
+Fastest performance
+
+COUNT(column):
+
+Counts non-NULL values in the specified column
+Ignores rows where the column is NULL
+Counts only rows with actual data in that column
+
+Question 4: Can you group by multiple columns?
+Answer:
+Yes! You can group by multiple columns to create more specific groupings based on combinations of values.
+How It Works:
+
+Each unique combination of values becomes a separate group
+Order of columns in GROUP BY doesn't affect grouping (but may affect display order)
+Creates hierarchical grouping structure
+
+Question 5: What is ROUND() used for?
+Answer:
+ROUND() is a mathematical function that rounds numeric values to a specified number of decimal places, making data more readable and manageable.
+
+
+Question 6: How do you find the highest salary by department?
+Answer:
+Use the MAX() aggregate function combined with GROUP BY to find the maximum salary within each department group.
+  SELECT DepartmentID, MAX(Salary) AS 'Highest Salary'
+  FROM PROFESSORS
+  GROUP BY DepartmentID;
+
+Question 7: What is the default behavior of GROUP BY?
+Answer:
+The default behavior of GROUP BY includes several implicit characteristics:
+1. Grouping Behavior:
+
+Groups rows with identical values in specified column(s)
+Each unique value/combination creates one output row
+All non-aggregated columns in SELECT must be in GROUP BY
+
+2. No Automatic Sorting:
+
+GROUP BY does NOT guarantee any particular order
+Results may appear sorted, but this is incidental
+Always use ORDER BY if you need specific sorting
+
+3. NULL Handling:
+
+NULL values are treated as a single group
+All rows with NULL in the grouped column go together
+
+4. Aggregate Function Requirement:
+
+Without aggregates, GROUP BY acts like DISTINCT
+Best practice: always use aggregates with GROUP BY
+
+Question 8: Explain AVG and SUM.
+Answer:
+Both AVG() and SUM() are aggregate functions that perform calculations on numeric columns, but they compute different results.
+SUM() - Summation:
+
+Purpose: Adds up all values in a column
+Returns: Total of all values
+Use For: Totals, cumulative amounts
+
+AVG() - Average:
+
+Purpose: Calculates the arithmetic mean
+Returns: Sum divided by count (excluding NULLs)
+Use For: Averages, typical values, means
+
+Question 9: How to count distinct values?
+Answer:
+Use COUNT(DISTINCT column) to count the number of unique values in a column, ignoring duplicates and NULL values.
+  COUNT(DISTINCT column_name)
+
+Question 10: What is an aggregate function?
+Answer:
+An aggregate function performs a calculation on a set of values and returns a single value. It "aggregates" (combines) multiple rows of data into a summary result.
+Core Characteristics:
+
+Takes multiple input values (rows)
+Returns a single output value
+Typically used with GROUP BY
+Ignores NULL values (except COUNT(*))
+Operates on columns with specific data types
