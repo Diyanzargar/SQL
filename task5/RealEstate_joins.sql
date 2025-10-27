@@ -161,3 +161,21 @@ USE REAL_ESTATE;
 -- INNER JOIN Sales s ON p.property_id = s.property_id
 -- WHERE n.safety_rating >= 8  -- Filter applied early
 --   AND p.bedrooms >= 3;
+
+-- SELECT 
+--     p.address,
+--     b.buyer_name,
+--     s.sale_price,
+--     s.sale_date
+-- FROM PropertyListings p
+-- LEFT JOIN Sales s ON p.property_id = s.property_id
+-- LEFT JOIN Buyers b ON s.buyer_id = b.buyer_id
+-- UNION
+-- SELECT 
+--     p.address,
+--     b.buyer_name,
+--     s.sale_price,
+--     s.sale_date
+-- FROM Buyers b
+-- LEFT JOIN Sales s ON b.buyer_id = s.buyer_id
+-- LEFT JOIN PropertyListings p ON s.property_id = p.property_id;
