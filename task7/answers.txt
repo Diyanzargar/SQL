@@ -1,0 +1,180 @@
+Task 7: Views - Interview Questions & Answers
+1. What is a view?
+A view is a virtual table created from a SQL query. It doesn't store data itself but displays data from one or more underlying tables. Think of it as a saved query with a name.
+Key Characteristics:
+
+Virtual table (no physical storage)
+Based on a SELECT statement
+Updated automatically when underlying data changes
+Can be queried like a regular table
+Simplifies complex queries
+
+
+
+
+2. Can we update data through a view?
+Yes, but with conditions. Not all views are updatable. A view is updatable only if it meets specific criteria.
+Updatable View Requirements:
+✅ Based on a single table
+✅ No aggregate functions (SUM, AVG, COUNT, etc.)
+✅ No DISTINCT clause
+✅ No GROUP BY or HAVING
+✅ No subqueries in SELECT
+✅ No UNION operations
+✅ Contains primary key of base table
+
+
+3. What is a materialized view?
+A materialized view is a view that physically stores data on disk, unlike regular views which are virtual. It's like a snapshot of the query results.
+
+When to Use Materialized Views:
+✅ Complex aggregations that take long to compute
+✅ Data doesn't change frequently
+✅ Reports and dashboards
+✅ Data warehouse scenarios
+✅ Need better query performance
+
+4. Difference between view and table?
+
+Key Differences:
+
+Tables hold data, views show data
+Tables use disk space, views don't
+Tables are faster to query, views run the underlying query each time
+Tables can be fully updated, views have restrictions
+Views provide abstraction, tables provide storage
+
+Think of it this way:
+
+Table = A box containing items
+View = A window showing items from one or more boxes
+
+
+5. How to drop a view?
+Dropping a view removes its definition from the database, but doesn't affect the underlying tables or data.
+
+Basic Syntax:
+sqlDROP VIEW view_name;
+
+Safe Syntax (Recommended):
+
+sqlDROP VIEW IF EXISTS view_name;
+
+The IF EXISTS prevents errors if the view doesn't exist.
+
+
+-- Dropping ViewA will cause ViewB to fail
+DROP VIEW ViewA;
+-- ViewB now has a broken dependency
+Best Practice:
+
+Always use DROP VIEW IF EXISTS
+Document view dependencies
+Check for dependent views before dropping
+Test queries that use the view after dropping
+
+6. Why use views?
+Views provide multiple benefits for database management, security, and development efficiency.
+
+Summary of Benefits:
+✅ Simplicity - Hide complex logic
+✅ Security - Control data access
+✅ Reusability - Write once, use many times
+✅ Consistency - Same logic for all users
+✅ Maintainability - Change in one place
+✅ Abstraction - Present data differently
+
+7. Can we create indexed views?
+It depends on the database system. Not all databases support indexes on views.
+Database Support:
+Database Indexed Views Support
+SQL Server✅ Yes (called "Indexed Views")
+Oracle✅ Yes (via Materialized Views)
+PostgreSQL✅ Yes (via Materialized Views)
+MySQL❌ No (regular views can't be indexed)
+SQLite❌ No (views can't be indexed)
+
+8. How to secure data using views?
+Views are excellent for data security and access control. They allow you to show users only what they need to see.
+Security Techniques:
+1. Hide Sensitive Columns
+
+2. Filter Rows Based on Conditions
+
+3. Hide Financial Information
+
+4. Mask or Transform Sensitive Data
+
+5. Role-Based Access
+
+6. Aggregate Only (Hide Individual Records)
+
+Security Best Practices:
+1. Grant Principle of Least Privilege:
+
+-- Grant access only to views
+
+2. Use Multiple Views for Different Roles:
+--Public view
+
+-- Agent view
+
+-- Admin view
+
+3. Audit Through Views:
+sql-- Track who views what through views with logging
+
+Benefits:
+✅ Users can't access sensitive columns
+✅ Reduces risk of data leaks
+✅ Centralized access control
+✅ No need to modify application code
+✅ Easy to update security rules
+
+9. What are limitations of views?
+While views are powerful, they have several limitations you should know.
+1. Performance Limitations
+  View doesn't store data - query runs EVERY time
+  Each query to this view runs the full underlying query
+  Impact: Complex views can be slower than querying tables directly.
+2. Update Restrictions
+   view CANNOT be updated (has JOIN)
+
+3. No Indexes (Most Databases)
+  In SQLite/MySQL, you can't create indexes on views
+
+4. Dependency Issues
+  ViewB depends on ViewA
+  Dropping ViewA breaks ViewB
+  Impact: Must carefully manage view dependencies.
+
+5. Schema Changes Break Views
+  If you drop the 'price' column from PropertyListings:
+  ALTER TABLE PropertyListings DROP COLUMN listing_price;
+  -- MyView now broken!
+  Impact: Table structure changes can break dependent views.
+6. ORDER BY Limitations
+  ORDER BY in view definition may be ignored
+  This may not be sorted when queried:
+  Impact: Cannot rely on ORDER BY in view definition.
+
+7. Temporary Tables in Views
+  Cannot reference temporary tables in views
+  Impact: Views must reference permanent tables.
+
+8. Cannot Use LIMIT/OFFSET (Some Databases)
+  Some databases don't allow LIMIT in views
+
+9. Parameter Limitations
+  Views cannot accept parameters
+
+Summary of Limitations:
+Limitation Impact Workaround PerformanceSlow for complex queries Use materialized views or tables No Updates Can't modify through complex views Update base tables directly No Indexes Can't optimize view queries Index underlying tables Dependencies Breaking changes affect dependent views Document dependencies No Parameters Can't pass values to views Use WHERE when querying ORDER BY May be ignored Order in SELECT query
+
+10. How does WITH CHECK OPTION work?
+WITH CHECK OPTION ensures that INSERT/UPDATE operations through a view only affect rows that are visible through that view.
+Purpose:
+Prevents users from inserting or updating data that would make rows "disappear" from the view.
+
+
+Remember: Views are a powerful tool for simplifying queries, enhancing security, and maintaining consistency. Understanding their capabilities and limitations is key to using them effectively!
