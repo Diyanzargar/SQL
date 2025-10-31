@@ -1,0 +1,63 @@
+
+---
+
+## 🧾 `Practice_Explanation.md`
+
+```markdown
+# 🧾 Task 8 Practice Explanation – Stored Procedures & Functions
+
+---
+
+## 🧩 What I Did
+I used my **House Sales Database** to create 5 stored procedures and 5 functions.  
+Each routine focused on real estate operations like:
+- Calculating agent commissions
+- Summarizing neighborhood sales
+- Updating commission rates
+- Estimating property commissions
+- Counting and averaging sales
+
+I ensured that every procedure or function was practical, short, and clearly commented for easy review.
+
+---
+
+## ⚙️ Logic Behind Procedures
+1. **sp_CalcAgentCommission** – Joins `Agents` and `Sales` to compute total sales and commission.  
+2. **sp_AgentCommission_Out** – Demonstrates `OUT` parameters by returning values to session variables.  
+3. **sp_SalesInRangeByNeighborhood** – Filters property sales by neighborhood and date.  
+4. **sp_UpdateAgentCommissionRate** – Updates a rate and captures the old one in an `OUT` parameter.  
+5. **sp_AnnualSalesForAgent** – Demonstrates a `WHILE` loop for annual reporting.
+
+---
+
+## 🧮 Logic Behind Functions
+1. **fn_AvgSalePrice** – Returns average sale price of a neighborhood.  
+2. **fn_TotalSalesAgent** – Returns total sales by an agent.  
+3. **fn_HighestSaleInNeighborhood** – Finds the highest sale in an area.  
+4. **fn_EstCommissionForProperty** – Calculates estimated commission based on listing price.  
+5. **fn_CountSalesInRange** – Counts total sales within a date range.
+
+---
+
+## 🧠 Key Concepts Practiced
+- **IN/OUT parameters:** For passing and returning values  
+- **RETURN:** Used for scalar functions  
+- **Joins and aggregates:** To calculate sales totals, averages, and commissions  
+- **WHILE loop:** For repeated yearly calculations  
+- **Conditional logic:** Used in simple `CASE` examples  
+
+---
+
+## 💡 Examples Run
+I ran 30 examples to:
+- Call procedures and capture `OUT` values  
+- Use functions inside `SELECT` and `WHERE` clauses  
+- Combine procedure and function results  
+- Verify updates and calculations using real data  
+
+Example:
+```sql
+CALL sp_CalcAgentCommission(1);
+SELECT fn_AvgSalePrice(1);
+CALL sp_AgentCommission_Out(1, @t, @c);
+SELECT @t, @c;
